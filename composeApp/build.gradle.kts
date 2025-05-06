@@ -41,6 +41,9 @@ kotlin {
             implementation(projects.feature.menu)
             implementation(projects.feature.play)
             implementation(projects.feature.settings)
+
+            implementation(libs.koin.core)
+            implementation(libs.bundles.koin.compose)
         }
         desktopMain.dependencies {
             implementation(libs.kotlinx.coroutines.swing)

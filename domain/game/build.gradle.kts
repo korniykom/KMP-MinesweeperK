@@ -1,11 +1,6 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
@@ -25,6 +20,8 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.data.game)
             implementation(projects.data.settings)
+            implementation(libs.koin.core)
+
         }
     }
 

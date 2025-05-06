@@ -5,8 +5,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
@@ -30,6 +28,8 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(projects.data.core)
+            implementation(libs.koin.core)
+
         }
     }
 
@@ -56,21 +56,5 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-}
-
-dependencies {
-    debugImplementation(compose.uiTooling)
-}
-
-compose.desktop {
-    application {
-        mainClass = "com.korniykom.minesweeperk.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.korniykom.minesweeperk"
-            packageVersion = "1.0.0"
-        }
     }
 }

@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
+
 }
 
 kotlin {
@@ -31,6 +33,11 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.ui.core)
             implementation(projects.domain.game)
+
+            implementation(libs.koin.core)
+            implementation(libs.bundles.koin.compose)
+
+            implementation(libs.kotlinx.serialization)
         }
     }
 
